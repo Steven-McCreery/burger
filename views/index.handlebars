@@ -1,0 +1,21 @@
+
+<h1>Burger Time Everyone!</h1>
+
+<h2>A shame that these tasty treats haven't been eaten yet!</h2>
+<ul>
+	{{#each burgers}}
+		{{#unless devoured}}
+		{{/unless}}
+	{{/each}}
+</ul>
+
+<h2>Great Job Eating!</h2>
+<ul>
+	{{#each burgers}}
+		{{#if devoured}}
+		{{/if}}
+	{{/each}}
+</ul>
+
+
+

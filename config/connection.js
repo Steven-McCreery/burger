@@ -2,7 +2,7 @@
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-	port: 3000,
+	port: process.env.PORT || 3000,
 	host: "localhost",
 	user: "root",
 	password: "!@SQLm3.123",
@@ -11,10 +11,16 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
 	if (err) {
-		console.log("Error Occured While Connecting: ", err.stack);
+		console.log("Error Occured While Connecting: " + err.stack);
 		return;
 	}
-	console.log("Connected as ID: ", connection.threadId);
+	console.log("Connected as ID: " + connection.threadId);
 });
 
+connection.query('SELECT 1 + 1 AS solution;', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+
+console.log("Test");
 module.exports = connection;

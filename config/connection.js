@@ -1,4 +1,5 @@
 
+// requiring mysql and setting up the connection to the needed database
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
@@ -9,6 +10,8 @@ var connection = mysql.createConnection({
 	database: "burgers_db"
 });
 
+
+// connecting to the database
 connection.connect(function(err) {
 	if (err) {
 		console.log("Error Occured While Connecting: " + err.stack);
@@ -23,4 +26,7 @@ connection.query('SELECT 1 + 1 AS solution;', function (error, results, fields) 
 });
 
 console.log("Test");
+
+
+// exporting the connection for use by app
 module.exports = connection;

@@ -1,3 +1,5 @@
+
+-- creating the database and then setting up the table within the newly created db
 CREATE DATABASE burgers_db;
 USE burgers_db;
 

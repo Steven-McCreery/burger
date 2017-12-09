@@ -1,10 +1,13 @@
 
+// requiring the express app 
 var express = require("express");
 
 var router = express.Router();
 
+// requiring the burger.js file for its methods
 var burger = require("../models/burger.js");
 
+// setting up get, post, and put routes
 router.get("/", function(req, res) {
 	burger.selectAll(function(data) {
 		console.log(data);
@@ -29,6 +32,5 @@ router.put("/api/burgers/:id", function(req, res) {
 })
 
 
-
-
+// exporting the routes
 module.exports = router;

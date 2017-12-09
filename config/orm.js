@@ -1,4 +1,5 @@
 
+// requiring connection.js file
 var connection = require("./connection.js");
 
 console.log("test connection");
@@ -7,6 +8,7 @@ connection.query('SELECT 1 + 1 AS solution;', function (error, results, fields) 
   console.log('The solution is: ', results[0].solution);
 });
 
+// setting up the select all, insert, and update mysql queries
 var orm = {
 	selectAll: function(cb) {
 		console.log('ORM');
@@ -41,6 +43,5 @@ var orm = {
 }
 
 
-
-
+// exporting the orm object and its methods
 module.exports = orm;

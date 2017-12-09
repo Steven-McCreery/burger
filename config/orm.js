@@ -8,7 +8,7 @@ connection.query('SELECT 1 + 1 AS solution;', function (error, results, fields) 
 });
 
 var orm = {
-	"selectAll": function(cb) {
+	selectAll: function(cb) {
 		console.log('ORM');
 		console.log(connection);
 		connection.query("SELECT * FROM burgers;", function(err, result) {
@@ -21,13 +21,23 @@ var orm = {
 		})
 	},
 
-	// insertOne() {
+	insertOne: function(values, cb) {
+		connection.query("INSERT INTO burgers", values, function(err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		})
+	},
 
-	// },
-
-	// updateOne() {
-
-	// }
+	updateOne: function(devoured, id, cb) {
+		connection.query("UPDATE burgers SET " + devoured + "WHERE id = " + id, function(err, result) {
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		})
+	}
 }
 
 

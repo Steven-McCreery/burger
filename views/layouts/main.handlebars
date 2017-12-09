@@ -6,6 +6,46 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
+
+	{{!-- index.handlebars file will render within the body --}}
 	{{{body}}}
 </body>
+
+<script type="text/javascript">
+
+	// creating functionality to handle buttons/swapping of burgers' devoured state
+	$(function() {
+		$(".change-devoured").on("click", function() {
+			var id = $(this).data("id");
+			var isDevoured = $(this).data("newDevoured");
+
+			var devouredState = {
+				devoured: isDevoured
+			};
+		})
+
+		// sending the new state to db
+		$.ajax("/api/burgers/" + id, {
+			type: "PUT",
+			data: devouredState
+		}).then(function() {
+			location.reload();
+		});
+
+		// form input converting to a post object for submission
+		$(".burger-form").on("submit", function(event) {
+
+			event.preventDefault();
+
+			var newBurger = $("#newBurger").val().trim();
+
+			$.ajax("/api/burgers", {
+				type: "POST",
+				data: newBurger
+			}).then(function() {
+				location.reload();
+			})
+		})
+	})
+</script>
 </html>

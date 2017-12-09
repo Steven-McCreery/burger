@@ -1,4 +1,5 @@
 
+// requiring the orm file and its methods
 var orm = require("../config/orm.js");
 
 var burger = {
@@ -25,10 +26,5 @@ var burger = {
 }
 
 
-
-
-
-
-
-
+// exporting the burger object and its methods
 module.exports = burger;

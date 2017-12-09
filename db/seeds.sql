@@ -1,3 +1,5 @@
+
+-- using the new db table to place some entries within
 USE burgers_db;
 
 INSERT INTO burgers(burger_name)

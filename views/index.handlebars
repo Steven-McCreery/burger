@@ -1,7 +1,22 @@
 
 <h1>Burger Time Everyone!</h1>
 
+{{!-- new burger submission form --}}
+<form class="create-form">
+
+	<div class="form-group">
+		<label for="newBurger">Burger Name:</label>
+		<input type="text" id="newBurger" name="name">
+	</div>
+
+	<button type="submit">Add A Burger!</button>
+
+</form>
+
+
 <h2>A shame that these tasty treats haven't been eaten yet!</h2>
+
+{{!-- non-devoured burgers will appear in this area --}}
 <ul>
 	{{#each burgers}}
 		{{#unless devoured}}
@@ -10,6 +25,8 @@
 </ul>
 
 <h2>Great Job Eating!</h2>
+
+{{!-- when a burger is devoured it will move to this area --}}
 <ul>
 	{{#each burgers}}
 		{{#if devoured}}
